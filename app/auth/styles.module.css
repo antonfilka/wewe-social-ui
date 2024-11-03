@@ -31,3 +31,10 @@
     line-height: 18;
     font-weight: 400;
 }
+
+.errorMessage {
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 400;
+    color: var(--error-color);
+}

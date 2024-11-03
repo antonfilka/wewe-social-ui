@@ -25,7 +25,11 @@ export default function SignInPage() {
         password: yup.string().required('Это поле является обязательным'),
     });
 
-    const { register, handleSubmit } = useForm<SignInType>({
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<SignInType>({
         resolver: yupResolver(validationScheme),
         defaultValues: emptySignInFields,
     });
@@ -38,8 +42,9 @@ export default function SignInPage() {
         <div className={styles.pageWrapper}>
             <AuthHeader />
             <form onSubmit={handleSubmit(onSubmit)} className={styles.formWrapper}>
-                <input {...register('email')} placeholder="Email" />
-                <input {...register('password')} placeholder="Password" />
+                {(errors.email || errors.email) && <span>Не верно введен e-mail или пароль!</span>}
+                <input {...register('email')} placeholder="E-mail" />
+                <input {...register('password')} placeholder="Пароль" />
                 <a className={styles.forgetPassword}>Забыли пароль?</a>
                 <button type="submit">Войти</button>
             </form>
