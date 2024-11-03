@@ -1,3 +1,4 @@
+'use client';
 import { Typography as TypographyAnt } from 'antd';
 import React from 'react';
 
