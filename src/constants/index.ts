@@ -5,3 +5,9 @@ export const LOCAL_STORAGE = {
 export const QUERY_KEYS = {
     POSTS: 'posts',
 };
+
+export const ROUTES = {
+    signIn: '/auth/login',
+    signUp: '/auth/sign-up',
+    signUpBusiness: '/auth/sign-up/business',
+};
