@@ -1,0 +1,33 @@
+.headerWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    text-align: center;
+    font-size: 32px;
+    line-height: 38px;
+    color: var(--text-color);
+    font-weight: 700;
+    margin-bottom: 45px;
+}
+
+.navigation {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+}
+
+.navigationItem {
+    text-transform: uppercase;
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 400;
+}
+
+.active {
+    color: var(--primary-color);
+}
