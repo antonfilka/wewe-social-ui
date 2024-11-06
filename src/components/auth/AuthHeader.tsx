@@ -1,38 +1,34 @@
 import styles from './styles.module.css';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ROUTES } from '@/src/constants';
-import Typography from '@/src/components/common/Typography';
-import { Flex } from 'antd';
 import clsx from 'clsx';
+import Image from 'next/image';
+import { Link } from '../common/Link';
 
 export const AuthHeader = () => {
     const activeLink = usePathname();
 
     return (
-        <>
-            <Flex className="mt-[55px] w-full" gap="28px" align="center" justify="center">
-                <Link href={ROUTES.signIn}>
-                    <Typography
-                        variant="text"
-                        className={clsx(styles.navigationItem, {
-                            [styles.active]: activeLink === ROUTES.signIn,
-                        })}
-                    >
-                        ВХОД
-                    </Typography>
+        <div className="mb-[30px] flex w-full flex-col items-center gap-[25px]">
+            <Image src="/wewe_logo.png" alt="Logo" width={100} height={50} />
+            <div className="flex items-center justify-center gap-[25px]">
+                <Link
+                    href={ROUTES.signIn}
+                    textClassName={clsx(styles.navigationItem, {
+                        [styles.active]: activeLink === ROUTES.signIn,
+                    })}
+                >
+                    ВХОД
                 </Link>
-                <Link href={ROUTES.signUp}>
-                    <Typography
-                        variant="text"
-                        className={clsx(styles.navigationItem, {
-                            [styles.active]: activeLink === ROUTES.signUp,
-                        })}
-                    >
-                        РЕГИСТРАЦИЯ
-                    </Typography>
+                <Link
+                    href={ROUTES.signUp}
+                    textClassName={clsx(styles.navigationItem, {
+                        [styles.active]: activeLink === ROUTES.signUp,
+                    })}
+                >
+                    РЕГИСТРАЦИЯ
                 </Link>
-            </Flex>
-        </>
+            </div>
+        </div>
     );
 };

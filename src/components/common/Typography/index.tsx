@@ -1,5 +1,6 @@
 'use client';
 import { Typography as TypographyAnt } from 'antd';
+import clsx from 'clsx';
 import React from 'react';
 
 const { Title, Text, Paragraph } = TypographyAnt;
@@ -18,22 +19,24 @@ const CustomTypography: React.FC<CustomTypographyProps> = ({
     children,
     ...restProps
 }) => {
+    const commonClassName = clsx('!mb-0', className);
+
     switch (variant) {
         case 'title':
             return (
-                <Title level={level} className={className} {...restProps}>
+                <Title level={level} className={commonClassName} {...restProps}>
                     {children}
                 </Title>
             );
         case 'text':
             return (
-                <Text className={className} {...restProps}>
+                <Text className={commonClassName} {...restProps}>
                     {children}
                 </Text>
             );
         case 'paragraph':
             return (
-                <Paragraph className={className} {...restProps}>
+                <Paragraph className={commonClassName} {...restProps}>
                     {children}
                 </Paragraph>
             );

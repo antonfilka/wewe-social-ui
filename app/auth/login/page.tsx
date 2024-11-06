@@ -1,21 +1,17 @@
 'use client';
 
-import Typography from '@/src/components/common/Typography';
 import { ROUTES } from '@/src/constants';
-import Link from 'next/link';
-import { AuthHeader } from '@/src/components/auth/AuthHeader';
 import SignInForm from '@/app/auth/login/form';
+import { AuthHeader } from '@/src/components/auth/AuthHeader';
+import { Link } from '@/src/components/common/Link';
 
 export default function SignInPage() {
     return (
-        <div className="mx-auto flex h-screen w-[500px] flex-col items-center bg-[#EBEBEB]">
-            <Typography variant="text" className="mt-[130px]">
-                LOGO
-            </Typography>
+        <div className="flex h-full min-h-screen flex-col items-center justify-center">
             <AuthHeader />
             <SignInForm />
-            <Link className="mb-[45px] mt-auto" href={ROUTES.signUpBusiness}>
-                <Typography variant="paragraph">ХОТИТЕ СТАТЬ ПАРТНЕРОМ?</Typography>
+            <Link linkClassName="mt-[100px]" href={ROUTES.signUpBusiness}>
+                ХОТИТЕ СТАТЬ ПАРТНЕРОМ?
             </Link>
         </div>
     );
