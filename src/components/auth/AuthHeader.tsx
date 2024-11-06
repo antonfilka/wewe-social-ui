@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import { ROUTES } from '@/src/constants';
 import Typography from '@/src/components/common/Typography';
 import { Flex } from 'antd';
+import clsx from 'clsx';
 
 export const AuthHeader = () => {
     const activeLink = usePathname();
@@ -14,7 +15,9 @@ export const AuthHeader = () => {
                 <Link href={ROUTES.signIn}>
                     <Typography
                         variant="text"
-                        className={`${styles.navigationItem} ${activeLink === ROUTES.signIn ? styles.active : ''}`}
+                        className={clsx(styles.navigationItem, {
+                            [styles.active]: activeLink === ROUTES.signIn,
+                        })}
                     >
                         ВХОД
                     </Typography>
@@ -22,7 +25,9 @@ export const AuthHeader = () => {
                 <Link href={ROUTES.signUp}>
                     <Typography
                         variant="text"
-                        className={`${styles.navigationItem} ${activeLink === ROUTES.signUp ? styles.active : ''}`}
+                        className={clsx(styles.navigationItem, {
+                            [styles.active]: activeLink === ROUTES.signUp,
+                        })}
                     >
                         РЕГИСТРАЦИЯ
                     </Typography>

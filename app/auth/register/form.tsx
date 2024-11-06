@@ -1,49 +1,29 @@
 'use client';
-import styles from '@/app/auth/styles.module.css';
-import { z } from 'zod';
-import { RegExpressions } from '@/src/constants/regex';
+import styles from '../styles.module.css';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import FormInput from '@/src/components/common/FormInput';
 import { Button } from '@/src/components/common/Button';
+import Link from 'next/link';
+import { RegisterForm, RegisterSchema } from './schema';
 
-export type SignUpType = {
-    email: string;
-    password: string;
-    passwordConfirmation: string;
-};
-
-const emptySignUpFields: SignUpType = {
+const defaultValues: RegisterForm = {
     email: '',
     password: '',
-    passwordConfirmation: '',
+    passwordConfirm: '',
 };
 
 export default function SignUpForm() {
-    const validationScheme = z
-        .object({
-            email: z
-                .string()
-                .min(1, { message: 'Email обязателен' })
-                .regex(RegExpressions.emailWithSpaces, { message: 'Некорректный формат email' }),
-            password: z.string().min(1, { message: 'Пароль обязателен' }),
-            passwordConfirm: z.string().min(1, { message: 'Подтверждение пароля обязательно' }),
-        })
-        .refine((data) => data.password === data.passwordConfirm, {
-            message: 'Пароли не совпадают',
-            path: ['passwordConfirm'],
-        });
-
     const {
         handleSubmit,
         control,
         formState: { errors },
-    } = useForm<SignUpType>({
-        resolver: zodResolver(validationScheme),
-        defaultValues: emptySignUpFields,
+    } = useForm<RegisterForm>({
+        resolver: zodResolver(RegisterSchema),
+        defaultValues,
     });
 
-    const onSubmit: SubmitHandler<SignUpType> = (data: SignUpType) => {
+    const onSubmit: SubmitHandler<RegisterForm> = (data: RegisterForm) => {
         console.log('data: ', data);
     };
 
@@ -62,10 +42,13 @@ export default function SignUpForm() {
                     name="passwordConfirmation"
                     control={control}
                     label="Подтверждение пароля"
-                    error={errors.passwordConfirmation}
+                    error={errors.passwordConfirm}
                     isPassword
                 />
-                <a className={styles.forgetPassword}>Забыли пароль?</a>
+                {/* The same here - using Link from "next/link" */}
+                <Link href="" className={styles.forgetPassword}>
+                    Забыли пароль?
+                </Link>
                 <div className="flex w-full items-center justify-center">
                     <Button
                         htmlType="submit"

@@ -29,5 +29,6 @@
 }
 
 .active {
+    /* ! We need to think about syncing colors constants, In previous pull request I've created an object with colors which is passed to Antdesign themeprovider */
     color: var(--primary-color) !important;
 }

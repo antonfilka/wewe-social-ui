@@ -1,41 +1,28 @@
 'use client';
 import styles from '../styles.module.css';
-import { z } from 'zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { RegExpressions } from '@/src/constants/regex';
 import { zodResolver } from '@hookform/resolvers/zod';
 import FormInput from '@/src/components/common/FormInput';
 import { Button } from '@/src/components/common/Button';
+import { LoginForm, LoginFormSchema } from './schema';
+import Link from 'next/link';
 
-export type SignInType = {
-    email: string;
-    password: string;
-};
-
-const emptySignInFields: SignInType = {
+const defaultValues: LoginForm = {
     email: '',
     password: '',
 };
 
 export default function SignInForm() {
-    const validationScheme = z.object({
-        email: z
-            .string()
-            .min(1, { message: 'Email обязателен' })
-            .regex(RegExpressions.emailWithSpaces, { message: 'Email введен некорректно' }),
-        password: z.string().min(1, { message: 'Пароль обязателен' }),
-    });
-
     const {
         control,
         handleSubmit,
         formState: { errors },
-    } = useForm<SignInType>({
-        resolver: zodResolver(validationScheme),
-        defaultValues: emptySignInFields,
+    } = useForm<LoginForm>({
+        resolver: zodResolver(LoginFormSchema),
+        defaultValues,
     });
 
-    const onSubmit: SubmitHandler<SignInType> = (data: SignInType) => {
+    const onSubmit: SubmitHandler<LoginForm> = (data: LoginForm) => {
         console.log('data: ', data);
     };
 
@@ -50,7 +37,9 @@ export default function SignInForm() {
                     error={errors.password}
                     isPassword
                 />
-                <a className={styles.forgetPassword}>Забыли пароль?</a>
+                <Link href="" className={styles.forgetPassword}>
+                    Забыли пароль?
+                </Link>
                 <div className="flex w-full items-center justify-center">
                     <Button
                         htmlType="submit"
