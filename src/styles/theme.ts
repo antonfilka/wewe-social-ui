@@ -7,6 +7,7 @@ import { ThemeConfig } from 'antd';
  * and not render on server side
  */
 
+// TODO: sync with global css variables
 export const COLORS = {
     primary: '#FF6700CC',
 

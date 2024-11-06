@@ -1,4 +1,4 @@
-import { SignUpBusinessForm } from '@/app/auth/sign-up/business/schema';
+import { SignUpBusinessForm } from '@/app/auth/business/schema';
 import axiosInstance from '../index';
 
 export const sendBusinessSignUpForm = async (data: SignUpBusinessForm) => {

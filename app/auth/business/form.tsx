@@ -1,7 +1,7 @@
 'use client';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { SignUpBusinessForm, formSchema } from './schema';
+import { BusinessRegisterForm, BusinessRegisterSchema } from './schema';
 import FormInput from '@/src/components/common/FormInput';
 import { Button } from '@/src/components/common/Button';
 import { useMutation } from '@tanstack/react-query';
@@ -16,12 +16,12 @@ export const Form = () => {
         handleSubmit,
         formState: { errors },
         reset,
-    } = useForm<SignUpBusinessForm>({
-        resolver: zodResolver(formSchema),
+    } = useForm<BusinessRegisterForm>({
+        resolver: zodResolver(BusinessRegisterSchema),
     });
 
     const { mutate } = useMutation({
-        mutationFn: (data: SignUpBusinessForm) => sendBusinessSignUpForm(data),
+        mutationFn: (data: BusinessRegisterForm) => sendBusinessSignUpForm(data),
         onError: () => {
             messageApi.open({
                 type: 'error',
@@ -37,7 +37,7 @@ export const Form = () => {
         },
     });
 
-    const onSubmit = (data: SignUpBusinessForm) => {
+    const onSubmit = (data: BusinessRegisterForm) => {
         console.log('Form Data:', data);
         mutate(data);
     };

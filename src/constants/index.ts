@@ -9,5 +9,5 @@ export const QUERY_KEYS = {
 export const ROUTES = {
     signIn: '/auth/login',
     signUp: '/auth/register',
-    signUpBusiness: '/auth/sign-up/business',
+    signUpBusiness: '/auth/business',
 };

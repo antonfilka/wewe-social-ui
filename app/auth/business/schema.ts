@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const formSchema = z
+export const BusinessRegisterSchema = z
     .object({
         organizationName: z.string().min(1, 'Please enter the organization name'),
         category: z.string().min(1, 'Please enter a category'),
@@ -19,4 +19,4 @@ export const formSchema = z
         path: ['confirmPassword'],
     });
 
-export type SignUpBusinessForm = z.infer<typeof formSchema>;
+export type BusinessRegisterForm = z.infer<typeof BusinessRegisterSchema>;

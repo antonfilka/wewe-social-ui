@@ -8,8 +8,8 @@ export default function Home() {
             <a className="cursor-pointer" href="/auth/register">
                 Sing-up
             </a>
-            <a className="cursor-pointer" href="/auth/sign-up/business">
-                Sing-up/business
+            <a className="cursor-pointer" href="/auth/business">
+                Business
             </a>
         </div>
     );
