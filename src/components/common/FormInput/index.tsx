@@ -14,7 +14,7 @@ interface FormInputProps {
 }
 
 const FormInput: React.FC<FormInputProps> = ({ name, control, label, error, isPassword }) => (
-    <div className="flex w-full flex-col items-start">
+    <div className="mb-[5px] flex w-full flex-col items-start gap-[3px]">
         <label>{label}</label>
         <Controller
             name={name}

@@ -23,6 +23,9 @@ body {
     color: var(--text-color);
     background: var(--background-color);
     font-family: Arial, Helvetica, sans-serif;
+
+    min-height: 100dvh;
+    height: 100%;
 }
 
 @layer utilities {
