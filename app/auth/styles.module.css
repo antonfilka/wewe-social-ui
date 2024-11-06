@@ -1,0 +1,40 @@
+.pageWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 130px 45px 45px;
+    background-color: var(--background-color);
+}
+
+.formWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
+}
+
+.formWrapper input {
+    width: 100%;
+}
+
+.formWrapper button {
+    gap: 0;
+}
+
+.forgetPassword {
+    bottom: 150px;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    height: 30px;
+    text-transform: uppercase;
+    font-size: 15px;
+    line-height: 18;
+    font-weight: 400;
+}
+
+.errorMessage {
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 400;
+    color: var(--error-color);
+}
