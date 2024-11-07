@@ -9,6 +9,7 @@ import { sendBusinessSignUpForm } from '@/src/api/auth';
 import { message } from 'antd';
 import { Dispatch, SetStateAction, useEffect } from 'react';
 import useFormPersist from '@/src/hooks/useFormPersist';
+import { FormSelect } from '@/src/components/common/FormSelect';
 
 const defaultValues: BusinessRegisterForm = {
     organizationName: '',
@@ -23,6 +24,32 @@ const defaultValues: BusinessRegisterForm = {
     password: '',
     confirmPassword: '',
 };
+
+const CATEGORY_OPTIONS = [
+    { value: '1', label: 'Кафе' },
+    { value: '2', label: 'Бар' },
+    { value: '3', label: 'Ресторан' },
+    { value: '4', label: 'Клуб' },
+    { value: '5', label: 'Пекарня' },
+    { value: '6', label: 'Бистро' },
+    { value: '7', label: 'Активный отдых' },
+    { value: '8', label: 'Фуд-корт' },
+    { value: '9', label: 'Гастробар' },
+    { value: '10', label: 'Закусочная' },
+    { value: '11', label: 'Винный бар' },
+    { value: '12', label: 'Пиццерия' },
+    { value: '13', label: 'Бильярдная' },
+    { value: '14', label: 'Паб' },
+    { value: '15', label: 'Лаундж' },
+    { value: '16', label: 'Картинг' },
+    { value: '17', label: 'Пейнтбол' },
+    { value: '18', label: 'Квест-комната' },
+    { value: '19', label: 'Боулинг' },
+    { value: '20', label: 'Музей' },
+    { value: '21', label: 'Кинотеатр' },
+    { value: '22', label: 'Театр' },
+    { value: '23', label: 'Караоке' },
+];
 
 export const Form = ({
     currentStep,
@@ -60,7 +87,7 @@ export const Form = ({
             });
         },
         onSuccess: () => {
-            reset();
+            reset(defaultValues);
             messageApi.open({
                 type: 'success',
                 content: 'Заявка отправлена. Мы скоро свяжемся с вами :)',
@@ -85,8 +112,6 @@ export const Form = ({
                 tempStepsWithErrors.push(3);
         }
 
-        console.log(errors);
-
         setStepsWithErrors(tempStepsWithErrors);
     }, [errors, JSON.stringify(errors)]);
 
@@ -96,13 +121,19 @@ export const Form = ({
                 name="organizationName"
                 control={control}
                 label="Название организации"
+                placeholder="McDonalds"
                 error={errors.organizationName}
             />
-            <FormInput
+            <FormSelect
+                showSearch
+                placeholder="Cafe"
+                optionFilterProp="label"
+                notFoundContent="Такой категории нет"
                 name="category"
                 control={control}
                 label="Категория"
                 error={errors.category}
+                options={CATEGORY_OPTIONS}
             />
         </>
     );
@@ -124,6 +155,7 @@ export const Form = ({
                 name="phoneNumber"
                 control={control}
                 label="Номер телефона для бронирования/связи"
+                placeholder="375291234567"
                 error={errors.phoneNumber}
             />
         </>
