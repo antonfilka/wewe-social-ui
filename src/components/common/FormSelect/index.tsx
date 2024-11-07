@@ -17,7 +17,7 @@ export const FormSelect = ({ name, control, label, error, ...restProps }: FormSe
                 name={name}
                 control={control}
                 render={({ field }) => {
-                    return <AntSelect {...field} className="w-full" {...restProps} />;
+                    return <AntSelect {...field} className="w-full !text-[16px]" {...restProps} />;
                 }}
             />
 

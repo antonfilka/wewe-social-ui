@@ -26,8 +26,9 @@ const FormInput: React.FC<FormInputProps> = ({
             name={name}
             control={control}
             render={({ field }) => {
-                if (isPassword) return <Password {...field} className="w-full" {...restProps} />;
-                return <Input {...field} className="w-full" {...restProps} />;
+                if (isPassword)
+                    return <Password {...field} className="w-full !text-[16px]" {...restProps} />;
+                return <Input {...field} className="w-full !text-[16px]" {...restProps} />;
             }}
         />
 

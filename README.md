@@ -23,6 +23,9 @@ TODO: Sync global css variables with Ant design theme colors
 
 -   Ant design is used as a main ui library for now
 -   Use `clsx` when importing styles from css modules or managing conditional styles
+-   To avoid auto zoom (on mobile browsers) on inputs focus set font size at least 16px
+
+## Components
 
 ## Components Structure
 
