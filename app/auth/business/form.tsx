@@ -154,7 +154,8 @@ export const Form = ({
             <FormInput
                 name="phoneNumber"
                 control={control}
-                label="Номер телефона для бронирования/связи"
+                type="phone"
+                label="Номер телефона для брони/связи"
                 placeholder="375291234567"
                 error={errors.phoneNumber}
             />
@@ -211,13 +212,13 @@ export const Form = ({
         <>
             {contextHolder}
             <form onSubmit={handleSubmit(onSubmit)} className="w-full">
-                <div className="flex min-h-[315px] w-full flex-col items-start">
+                <div className="flex w-full flex-col items-start mobile:min-h-[260px] tablet:min-h-[315px]">
                     {currentStep === 0 && stepZeroFields}
                     {currentStep === 1 && stepOneFields}
                     {currentStep === 2 && stepTwoFields}
                     {currentStep === 3 && stepThreeFields}
                 </div>
-                <div className="mt-[40px] flex w-full items-center justify-between">
+                <div className="mt-[40px] flex w-full items-center justify-between mobile:mt-[20px]">
                     {currentStep > 0 ? (
                         <Button onClick={handlePrevStep}>Назад</Button>
                     ) : (

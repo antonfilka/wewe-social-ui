@@ -20,42 +20,48 @@ export default function SignUpBusinessPage() {
     };
 
     return (
-        <Flex className="mx-auto flex min-h-screen w-[80%] max-w-[650px] flex-col items-center justify-center overflow-y-auto bg-[#EBEBEB] py-[20px]">
-            <Typography variant="title" level={5} className="text-center font-[600]">
-                ЗАПОЛНИТЕ КОНТАКТНЫЕ ДАННЫЕ И МЫ С ВАМИ СВЯЖЕМСЯ
-            </Typography>
-            <div className="mb-[50px] mt-[50px] w-full">
-                <Steps
-                    size="small"
-                    current={currentStep}
-                    onChange={onChange}
-                    items={[
-                        {
-                            title: 'Категория',
-                            status: stepsWithErrors.includes(0) ? 'error' : undefined,
-                        },
-                        {
-                            title: 'Контакты',
-                            status: stepsWithErrors.includes(1) ? 'error' : undefined,
-                        },
-                        {
-                            title: 'Организация',
-                            status: stepsWithErrors.includes(2) ? 'error' : undefined,
-                        },
-                        {
-                            title: 'Логин и пароль',
-                            status: stepsWithErrors.includes(3) ? 'error' : undefined,
-                        },
-                    ]}
+        <div className="h-[100dvh] w-[100%] overflow-hidden overflow-y-auto bg-[#EBEBEB] py-[10px] mobile:py-[20px]">
+            <div className="mx-auto flex h-full w-[80%] max-w-[650px] flex-col items-center justify-center">
+                <Typography
+                    variant="title"
+                    level={5}
+                    className="text-center font-[600] mobile:mt-[10px]"
+                >
+                    ЗАПОЛНИТЕ КОНТАКТНЫЕ ДАННЫЕ И МЫ С ВАМИ СВЯЖЕМСЯ
+                </Typography>
+                <div className="w-full mobile:mb-[10px] mobile:mt-[20px] tablet:mb-[50px] tablet:mt-[50px]">
+                    <Steps
+                        size="small"
+                        current={currentStep}
+                        onChange={onChange}
+                        direction={window.innerWidth > 600 ? 'horizontal' : 'vertical'}
+                        items={[
+                            {
+                                title: 'Категория',
+                                status: stepsWithErrors.includes(0) ? 'error' : undefined,
+                            },
+                            {
+                                title: 'Контакты',
+                                status: stepsWithErrors.includes(1) ? 'error' : undefined,
+                            },
+                            {
+                                title: 'Организация',
+                                status: stepsWithErrors.includes(2) ? 'error' : undefined,
+                            },
+                            {
+                                title: 'Логин и пароль',
+                                status: stepsWithErrors.includes(3) ? 'error' : undefined,
+                            },
+                        ]}
+                    />
+                </div>
+                <Form
+                    currentStep={currentStep}
+                    setStepsWithErrors={setStepsWithErrors}
+                    handleNextStep={handleNextStep}
+                    handlePrevStep={handlePrevStep}
                 />
             </div>
-
-            <Form
-                currentStep={currentStep}
-                setStepsWithErrors={setStepsWithErrors}
-                handleNextStep={handleNextStep}
-                handlePrevStep={handlePrevStep}
-            />
-        </Flex>
+        </div>
     );
 }
