@@ -4,7 +4,6 @@ import { Flex, Steps } from 'antd';
 import { Form } from './form';
 import Typography from '@/src/components/common/Typography';
 import { useState } from 'react';
-import { Button } from '@/src/components/common/Button';
 
 export default function SignUpBusinessPage() {
     const [currentStep, setCurrentStep] = useState(0);
@@ -23,7 +22,7 @@ export default function SignUpBusinessPage() {
     return (
         <Flex className="mx-auto flex min-h-screen w-[80%] max-w-[650px] flex-col items-center justify-center overflow-y-auto bg-[#EBEBEB] py-[20px]">
             <Typography variant="title" level={5} className="text-center font-[600]">
-                ЗАПОЛНИТЕ КОНТАКТНЫЕ ДАННЫЕ И МЫ С ВАМИ СВЯЖЕМСЯ ;)
+                ЗАПОЛНИТЕ КОНТАКТНЫЕ ДАННЫЕ И МЫ С ВАМИ СВЯЖЕМСЯ
             </Typography>
             <div className="mb-[50px] mt-[50px] w-full">
                 <Steps
@@ -32,7 +31,7 @@ export default function SignUpBusinessPage() {
                     onChange={onChange}
                     items={[
                         {
-                            title: 'Общее',
+                            title: 'Категория',
                             status: stepsWithErrors.includes(0) ? 'error' : undefined,
                         },
                         {

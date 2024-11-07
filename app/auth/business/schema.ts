@@ -1,19 +1,32 @@
+import { RegExpressions } from '@/src/constants/regex';
 import { z } from 'zod';
 
 const i18BusinessRegisterForm = {
     errors: {
+        requiredField: 'Обязательное поле',
+        organizationName: 'Введите название организации',
+        category: 'Выберите категорию',
+        address: 'Введите адрес',
+        representative: 'Введите данные представителя',
+        phoneNumber: 'Неверный формат',
+        login: 'Введите логин',
+        password: 'Введите пароль',
+        confirmPassword: 'Подтвердите пароль',
+        passwordsNotMatching: 'Пароли не совпадают',
+    },
+};
+
+const i18BusinessRegisterFormEn = {
+    errors: {
         requiredField: 'Required field',
         organizationName: 'Please enter the organization name',
-        category: 'Please enter the organization name',
-        address: 'Please enter the organization name',
-        representative: 'Please enter the organization name',
-        phoneNumber: 'Phone number should contain only digits',
-        description: 'Please enter the organization name',
-        workingHours: 'Please enter the organization name',
-        website: 'Please enter the organization name',
-        login: 'Please enter the organization name',
-        password: 'Please enter the organization name',
-        confirmPassword: 'Please enter the organization name',
+        category: 'Please choose category',
+        address: 'Please enter address',
+        representative: 'Please enter representative data',
+        phoneNumber: 'Phone number should be valid',
+        login: 'Please enter login',
+        password: 'Please enter the password',
+        confirmPassword: 'Confirm password',
         passwordsNotMatching: 'Passwords do not match',
     },
 };
@@ -34,10 +47,10 @@ export const BusinessRegisterSchema = z
             .min(1, i18BusinessRegisterForm.errors.representative),
         phoneNumber: z
             .string({ required_error: i18BusinessRegisterForm.errors.requiredField })
-            .regex(/^\d+$/, i18BusinessRegisterForm.errors.phoneNumber),
+            .regex(RegExpressions.phoneWithSpaces, i18BusinessRegisterForm.errors.phoneNumber),
         description: z.string().optional(),
         workingHours: z.string().optional(),
-        website: z.string().url(i18BusinessRegisterForm.errors.website).optional(),
+        website: z.string().optional(),
         login: z
             .string({ required_error: i18BusinessRegisterForm.errors.requiredField })
             .min(1, i18BusinessRegisterForm.errors.login),
