@@ -1,13 +1,15 @@
 'use client';
 
-import { Flex, Steps } from 'antd';
+import { Steps } from 'antd';
 import { Form } from './form';
 import Typography from '@/src/components/common/Typography';
 import { useState } from 'react';
+import useDeviceSize from '@/src/hooks/useDeviceSize';
 
 export default function SignUpBusinessPage() {
     const [currentStep, setCurrentStep] = useState(0);
     const [stepsWithErrors, setStepsWithErrors] = useState<number[]>([]);
+    const [width] = useDeviceSize();
 
     const handlePrevStep = () => {
         if (currentStep > 0) setCurrentStep((prev) => prev - 1);
@@ -34,7 +36,7 @@ export default function SignUpBusinessPage() {
                         size="small"
                         current={currentStep}
                         onChange={onChange}
-                        direction={window.innerWidth > 600 ? 'horizontal' : 'vertical'}
+                        direction={width > 600 ? 'horizontal' : 'vertical'}
                         items={[
                             {
                                 title: 'Категория',
