@@ -4,7 +4,6 @@ import { Control, Controller, FieldError } from 'react-hook-form';
 
 interface FormSelectProps extends AntSelectProps {
     name: string;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     control: Control<any>;
     label: string;
     error?: FieldError;

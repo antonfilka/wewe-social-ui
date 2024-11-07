@@ -101,7 +101,7 @@ export const Form = ({
     };
 
     useEffect(() => {
-        let tempStepsWithErrors: number[] = [];
+        const tempStepsWithErrors: number[] = [];
         if (Object.keys(errors).length) {
             if (errors.organizationName || errors.category) tempStepsWithErrors.push(0);
             if (errors.address || errors.representative || errors.phoneNumber)

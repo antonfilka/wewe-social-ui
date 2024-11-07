@@ -1,4 +1,3 @@
-//@ts-ignore
 import { useEffect } from 'react';
 import { SetFieldValue } from 'react-hook-form';
 
