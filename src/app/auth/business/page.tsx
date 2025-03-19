@@ -2,9 +2,8 @@
 
 import { Steps } from 'antd';
 import { Form } from './form';
-import Typography from '@/src/components/common/Typography';
 import { useState } from 'react';
-import useDeviceSize from '@/src/hooks/useDeviceSize';
+import useDeviceSize from '@/hooks/useDeviceSize';
 
 export default function SignUpBusinessPage() {
     const [currentStep, setCurrentStep] = useState(0);
@@ -24,13 +23,9 @@ export default function SignUpBusinessPage() {
     return (
         <div className="h-[100dvh] w-[100%] overflow-hidden overflow-y-auto bg-[#EBEBEB] py-[10px] mobile:py-[20px]">
             <div className="mx-auto flex h-full w-[80%] max-w-[650px] flex-col items-center justify-center">
-                <Typography
-                    variant="title"
-                    level={5}
-                    className="text-center font-[600] mobile:mt-[10px]"
-                >
+                <h2 className="text-center font-[600] mobile:mt-[10px]">
                     ЗАПОЛНИТЕ КОНТАКТНЫЕ ДАННЫЕ И МЫ С ВАМИ СВЯЖЕМСЯ
-                </Typography>
+                </h2>
                 <div className="w-full mobile:mb-[10px] mobile:mt-[20px] tablet:mb-[50px] tablet:mt-[50px]">
                     <Steps
                         size="small"

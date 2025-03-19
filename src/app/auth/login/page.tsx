@@ -1,7 +1,7 @@
 'use client';
 
 import { ROUTES } from '@/src/constants';
-import SignInForm from '@/app/auth/login/form';
+import SignInForm from '@/src/app/auth/login/form';
 import { AuthHeader } from '@/src/components/auth/AuthHeader';
 import { Link } from '@/src/components/common/Link';
 

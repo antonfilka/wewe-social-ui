@@ -2,7 +2,7 @@
 
 import { AuthHeader } from '@/src/components/auth/AuthHeader';
 import { ROUTES } from '@/src/constants';
-import SignUpForm from '@/app/auth/register/form';
+import SignUpForm from '@/src/app/auth/register/form';
 import { Link } from '@/src/components/common/Link';
 
 export default function SignUpPate() {

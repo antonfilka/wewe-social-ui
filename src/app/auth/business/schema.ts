@@ -1,4 +1,4 @@
-import { RegExpressions } from '@/src/constants/regex';
+import { RegExpressions } from '@/constants/regex';
 import { z } from 'zod';
 
 const i18BusinessRegisterForm = {
